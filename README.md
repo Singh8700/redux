@@ -1,39 +1,61 @@
 #create Redux app 
 #first we install the redux library && #redux tool in react project
 #using this code : 
+
+
 npm install --save react-redux
 npm install --save-dev redux-devtools
 
 #after the installation go to our project & create the slice using the :
+
+
 createSlice in redux
 
 #for example is :
-//first import createSlice method in redux library 
+#first import createSlice method in redux library 
+
+
 import { createSlice } from '@reduxjs/toolkit'
 
-//create the slice
+#create the slice
+
 const CreateSlicer = createSlice(
-//createSlice in work the object method 
+
+#createSlice in work the object method 
+
+
 {
-//name of the slice
+#name of the slice
+
+
   name:"cart",
-//initialState 
+#initialState 
+
+
   initialState:[],
-//reducers
+#reducers
+
+
   reducers:{
-    //create your method in reducers
+    #create your method in reducers
+    
     add(state,action){
-      //return statement 
+    
+      #return statement 
     }
-    //second reducer create here
+    
+    #second reducer create here
+    
     remove(state,action){
-       //return statement 
+       #return statement 
     }
   }
 })
 
 #after declaration the CreateSlicer we need to export the actions using this code 
+
 export const { add, remove }  = cardSlice.actions
+
 #after export action we need to export CreateSlicer using this code
 export default CreateSlice.reducer
 
@@ -41,7 +63,7 @@ export default CreateSlice.reducer
 #than after export both actions+reducer we need to create a store configuration
 #using this code 
 
-//first import the configureStore in reduxjs
+#first import the configureStore in reduxjs
 
 import { configureStore } from "@reduxjs/toolkit" 
 
@@ -52,30 +74,33 @@ import cardReducer from "../cart/cardSlice"
 #than create a store variable & assign the configureStore method
 
 const store = configureStore(
-//configureStore method also work the object form
+
+#configureStore method also work the object form
+
+
 {
-//we calling the our created reducer 
+#we calling the our created reducer 
   reducer : {
-  //your declare any name 
-  //after name assign the previous CreateSlice
+  #your declare any name 
+  #after name assign the previous CreateSlice
     cart : CreateSlice,
   }
 })
 
-//end the last we also export this file
+#end the last we also export this file
 export default store
 
 #now this time we used redux in our projects
 
 #but first calling the Provider method in reduxjs
-//import Provider in app.jsx file
+#import Provider in app.jsx file
 import {Provider} from "react-redux"
-//also import store configuration in app.jsx file
+#also import store configuration in app.jsx file
 import store from "./components/store/Store"
 
 #than wrap the all Components in Provider
   <Provider store={store}>
-    //App components 
+    #App components 
   </Provider>
 
 #now we create the useDispath method to calling the reducers
