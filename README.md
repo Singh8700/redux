@@ -4,6 +4,7 @@
 
 
 npm install --save react-redux
+
 npm install --save-dev redux-devtools
 
 #after the installation go to our project & create the slice using the :
@@ -16,6 +17,7 @@ createSlice in redux
 
 
 import { createSlice } from '@reduxjs/toolkit'
+
 
 #create the slice
 
@@ -37,7 +39,7 @@ const CreateSlicer = createSlice(
 
 
   reducers:{
-    #create your method in reducers
+    /*create your method in reducers*/
     
     add(state,action){
     
@@ -63,11 +65,11 @@ export default CreateSlice.reducer
 #than after export both actions+reducer we need to create a store configuration
 #using this code 
 
-#first import the configureStore in reduxjs
+#first import the configureStore in reduxjs<br>
 
 import { configureStore } from "@reduxjs/toolkit" 
 
-#than also import our created CreateSlice
+#than also import our created CreateSlice<br>
 
 import cardReducer from "../cart/cardSlice"
 
@@ -76,7 +78,7 @@ import cardReducer from "../cart/cardSlice"
 const store = configureStore(
 
 #configureStore method also work the object form
-
+<br>
 
 {
 #we calling the our created reducer 
@@ -86,7 +88,7 @@ const store = configureStore(
     cart : CreateSlice,
   }
 })
-
+<br>
 #end the last we also export this file
 export default store
 
@@ -94,11 +96,15 @@ export default store
 
 #but first calling the Provider method in reduxjs
 #import Provider in app.jsx file
+
 import {Provider} from "react-redux"
+
 #also import store configuration in app.jsx file
+
 import store from "./components/store/Store"
 
 #than wrap the all Components in Provider
+
   <Provider store={store}>
     #App components 
   </Provider>
@@ -106,8 +112,11 @@ import store from "./components/store/Store"
 #now we create the useDispath method to calling the reducers
 
 import {useDispatch} from "react-redux"
+
 import {add} from "../cart/cardSlice"
+
 import {remove} from "../cart/cardSlice"
+
 
 #after importing we create the variable to store the useDispacth method
 
